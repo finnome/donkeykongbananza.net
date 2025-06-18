@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donkey Kong Bananza - The Ultimate Underground Adventure | Nintendo Switch 2</title>
+    <meta name="description" content="Discover Donkey Kong Bananza, the revolutionary 3D platformer coming to Nintendo Switch 2. Experience destructible environments, epic transformations, and underground exploration like never before.">
+    <meta name="keywords" content="Donkey Kong Bananza, Nintendo Switch 2, platform game, underground adventure, destructible environments, golden bananas, VoidCo, Pauline, bonanza transformations">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://donkeykongbananza.net">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 50%, #FFD700 100%);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #FFD700;
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        radial-gradient(circle at 30% 50%, #8B4513 0%, #D2691E 50%, #FFD700 100%);
+        }
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            color: #FFD700;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+            margin-bottom: 1rem;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 3px 3px 6px rgba(0,0,0,0.7), 0 0 20px #FFD700; }
+            to { text-shadow: 3px 3px 6px rgba(0,0,0,0.7), 0 0 30px #FFD700, 0 0 40px #FFD700; }
+        }
+        
+        .hero-content p {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        
+        .cta-button {
+            background: linear-gradient(45deg, #FF6B35, #F7931E);
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+        }
+        
+        .section {
+            padding: 80px 0;
+            background: white;
+            margin: 0;
+        }
+        
+        .section:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #8B4513;
+            position: relative;
+        }
+        
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #FF6B35, #F7931E);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #8B4513;
+        }
+        
+        .gameplay-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+        
+        .gameplay-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #FFD700;
+        }
+        
+        .gameplay-item h4 {
+            color: #8B4513;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-top: 3rem;
+        }
+        
+        .story-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .story-highlights {
+            background: linear-gradient(135deg, #FFD700, #F7931E);
+            padding: 30px;
+            border-radius: 15px;
+            color: white;
+        }
+        
+        .story-highlights h4 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .highlights-list {
+            list-style: none;
+        }
+        
+        .highlights-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .highlights-list li::before {
+            content: '🍌';
+            position: absolute;
+            left: 0;
+        }
+        
+        .characters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+        
+        .character-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .character-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #8B4513, #D2691E);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        
+        .release-info {
+            background: linear-gradient(135deg, #8B4513, #D2691E);
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .release-date {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .platform-info {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #FFD700;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .story-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 50px 0;
+            }
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Donkey Kong Bananza</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#gameplay">Gameplay</a></li>
+                <li><a href="#story">Story</a></li>
+                <li><a href="#characters">Characters</a></li>
+                <li><a href="#release">Release</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Donkey Kong Bananza</h1>
+            <p>The Ultimate Underground Adventure Awaits</p>
+            <a href="#about" class="cta-button">Discover the Adventure</a>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>What is Donkey Kong Bananza?</h2>
+            <p style="font-size: 1.2rem; text-align: center; margin-bottom: 3rem; color: #666; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Donkey Kong Bananza represents a revolutionary leap forward in platform gaming, marking the first major Donkey Kong adventure since Tropical Freeze in 2014. This groundbreaking 3D platformer brings the beloved gorilla hero into a completely destructible underground world, where every surface can be smashed, torn, and reshaped to create your own unique path to victory.
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🔨</span>
+                    <h3>Destructible Environments</h3>
+                    <p>Experience unprecedented freedom as Donkey Kong Bananza allows you to destroy almost every surface in the game world. Punch through walls, tear up the ground, and create entirely new pathways as you explore the mysterious underground realm.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">🦓</span>
+                    <h3>Bonanza Transformations</h3>
+                    <p>Unlock incredible transformation abilities in Donkey Kong Bananza! Transform into a speedy zebra for swift movement, become a flying ostrich to soar through the skies, or harness the calm bonanza power for ultimate destruction.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">🍌</span>
+                    <h3>Golden Banana Collection</h3>
+                    <p>Hunt for the precious Golden Bananas throughout the world of Donkey Kong Bananza. These banana-shaped diamonds, known as banandium gems, serve as your primary collectibles and unlock new abilities and areas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gameplay" class="section">
+        <div class="container">
+            <h2>Gameplay Mechanics</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 3rem; color: #666;">
+                Donkey Kong Bananza features an innovative combat and exploration system that puts destruction at the heart of discovery. Master these essential abilities to dominate the underground world.
+            </p>
+            
+            <div class="gameplay-grid">
+                <div class="gameplay-item">
+                    <h4>Punch & Smash</h4>
+                    <p>Unleash devastating punches in Donkey Kong Bananza to demolish enemies, walls, and terrain with incredible force. Chain together punch combos for maximum destruction.</p>
+                </div>
+                
+                <div class="gameplay-item">
+                    <h4>Dive Punch</h4>
+                    <p>Execute powerful downward punches that penetrate deep into the ground. The depth depends on terrain strength, making each dive punch in Donkey Kong Bananza a strategic choice.</p>
+                </div>
+                
+                <div class="gameplay-item">
+                    <h4>Roll Forward</h4>
+                    <p>Roll at high speed to send lighter objects soaring. Combine rolling with punches and jumps in Donkey Kong Bananza for dynamic movement combinations.</p>
+                </div>
+                
+                <div class="gameplay-item">
+                    <h4>Hand Slap Sonar</h4>
+                    <p>Use sonar abilities to detect hidden objects and collect scattered items. This essential Donkey Kong Bananza skill helps uncover secret treasures and pathways.</p>
+                </div>
+                
+                <div class="gameplay-item">
+                    <h4>Tear & Swing</h4>
+                    <p>Grab chunks of terrain and tear them from the environment. Swing these chunks as weapons or use them to break through stone barriers in Donkey Kong Bananza.</p>
+                </div>
+                
+                <div class="gameplay-item">
+                    <h4>Turf Surfing</h4>
+                    <p>Ride on terrain chunks like a surfboard, speeding up to knock smaller enemies away. This unique traversal method makes Donkey Kong Bananza truly distinctive.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="story" class="section">
+        <div class="container">
+            <h2>The Story Behind Donkey Kong Bananza</h2>
+            
+            <div class="story-content">
+                <div class="story-text">
+                    <p>The adventure of Donkey Kong Bananza begins during a frenzied gold rush when the mysterious villainous organization known as VoidCo sets their sights on the most precious treasure of all - the Golden Bananas. These extraordinary banana-shaped diamonds represent the ultimate prize, coveted by collectors and adventurers across the land.</p>
+                    
+                    <p>During the chaos of discovery, VoidCo successfully steals every single breathtaking bunch of Golden Bananas, leaving the jungle kingdom in despair. Now, our heroic gorilla must venture deep into the treacherous underground world to recover what was stolen and restore peace to his homeland.</p>
+                    
+                    <p>In Donkey Kong Bananza, players will discover that the underground realm is far more complex and mysterious than anyone imagined. The deeper DK ventures, the more amazing places he discovers, each filled with ancient secrets, powerful elders, and incredible bonanza powers waiting to be unlocked.</p>
+                </div>
+                
+                <div class="story-highlights">
+                    <h4>Key Story Elements</h4>
+                    <ul class="highlights-list">
+                        <li>Mysterious VoidCo organization as primary antagonists</li>
+                        <li>Golden Bananas as the central treasure to recover</li>
+                        <li>Deep underground world with multiple layers to explore</li>
+                        <li>Ancient giant elders possessing bonanza powers</li>
+                        <li>Pauline's crucial role in transformation abilities</li>
+                        <li>Progressive discovery of deeper, more amazing locations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="characters" class="section">
+        <div class="container">
+            <h2>Meet the Characters</h2>
+            
+            <div class="characters-grid">
+                <div class="character-card">
+                    <div class="character-avatar">🦍</div>
+                    <h3>Donkey Kong</h3>
+                    <p>The mighty gorilla hero of Donkey Kong Bananza, armed with incredible strength and destructive abilities. DK can transform into various animal forms and customize his appearance with different clothing and fur colors.</p>
+                </div>
+                
+                <div class="character-card">
+                    <div class="character-avatar">🎵</div>
+                    <h3>Pauline</h3>
+                    <p>Initially appearing as Odd Rock, a mysterious anthropomorphic purple stone, Pauline reveals her true identity as DK's crucial companion in Donkey Kong Bananza. Her singing voice enables DK's incredible transformations.</p>
+                </div>
+                
+                <div class="character-card">
+                    <div class="character-avatar">🦏</div>
+                    <h3>Cranky Kong & Rambi</h3>
+                    <p>The wise Cranky Kong ventures through the underground layers alongside his loyal companion Rambi. These familiar faces from the Donkey Kong universe play important supporting roles in Donkey Kong Bananza.</p>
+                </div>
+                
+                <div class="character-card">
+                    <div class="character-avatar">👑</div>
+                    <h3>Giant Elders</h3>
+                    <p>Ancient beings who call the underground world home in Donkey Kong Bananza. These mysterious giant elders possess incredible bonanza powers that can be learned to enhance DK's transformation abilities.</p>
+                </div>
+                
+                <div class="character-card">
+                    <div class="character-avatar">💀</div>
+                    <h3>VoidCo</h3>
+                    <p>The villainous organization that serves as the primary antagonist in Donkey Kong Bananza. This mysterious group of apes successfully steals all the Golden Bananas, setting the entire adventure in motion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="release-info">
+        <div class="container">
+            <h2 style="color: white; margin-bottom: 2rem;">Release Information</h2>
+            <div class="release-date">July 17, 2025</div>
+            <div class="platform-info">Exclusively for Nintendo Switch 2</div>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+                Donkey Kong Bananza will launch alongside brand new Donkey Kong and Pauline amiibo figures, marking a historic moment for the franchise as it makes its debut on the Nintendo Switch 2 platform.
+            </p>
+            <a href="#" class="cta-button">Pre-Order Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Game Information</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Gameplay Features</a></li>
+                        <li><a href="#">Character Guides</a></li>
+                        <li><a href="#">Transformation Guide</a></li>
+                        <li><a href="#">Collectibles Guide</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Official Forums</a></li>
+                        <li><a href="#">Strategy Discussions</a></li>
+                        <li><a href="#">Fan Art Gallery</a></li>
+                        <li><a href="#">Speedrun Leaderboards</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Latest Updates</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Development Blog</a></li>
+                        <li><a href="#">Nintendo Direct Coverage</a></li>
+                        <li><a href="#">Preview Screenshots</a></li>
+                        <li><a href="#">Gameplay Trailers</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid #555; padding-top: 2rem; margin-top: 2rem;">
+                <p>&copy; Copyright © 2025 donkeykongbananza.net All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.9)';
+            }
+        });
+
+        // Animate feature cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all feature cards and gameplay items
+        document.querySelectorAll('.feature-card, .gameplay-item, .character-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Dynamic text effects
+        const heroTitle = document.querySelector('.hero-content h1');
+        if (heroTitle) {
+            heroTitle.addEventListener('mouseover', function() {
+                this.style.transform = 'scale(1.05)';
+                this.style.transition = 'transform 0.3s ease';
+            });
+            
+            heroTitle.addEventListener('mouseout', function() {
+                this.style.transform = 'scale(1)';
+            });
+        }
+    </script>
+</body>
+</html>
