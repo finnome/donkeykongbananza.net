@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Donkey Kong Bananza | Gaming Tips, News & Strategies</title>
+    <meta name="description" content="Discover the latest Donkey Kong gaming tips, strategies, news, and reviews. Your ultimate destination for everything Donkey Kong Bananza.">
+    <meta name="keywords" content="Donkey Kong, gaming blog, game strategies, Nintendo, platformer games, gaming tips, video game news">
+    <meta name="author" content="Donkey Kong Bananza">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://donkeykongbananza.net/blogs">
+    <meta property="og:title" content="Blog - Donkey Kong Bananza">
+    <meta property="og:description" content="Discover the latest Donkey Kong gaming tips, strategies, news, and reviews.">
+    <meta property="og:image" content="https://donkeykongbananza.net/images/blog-banner.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://donkeykongbananza.net/blogs">
+    <meta property="twitter:title" content="Blog - Donkey Kong Bananza">
+    <meta property="twitter:description" content="Discover the latest Donkey Kong gaming tips, strategies, news, and reviews.">
+    <meta property="twitter:image" content="https://donkeykongbananza.net/images/blog-banner.jpg">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Donkey Kong Bananza Blog",
+        "description": "Gaming blog focused on Donkey Kong tips, strategies, and news",
+        "url": "https://donkeykongbananza.net/blogs",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Donkey Kong Bananza"
+        }
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #8B4513;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo::before {
+            content: "🍌";
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #8B4513;
+        }
+
+        /* Main Content */
+        main {
+            padding: 2rem 0;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        /* Search and Filter */
+        .blog-controls {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 1rem;
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .search-btn {
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: transform 0.2s;
+        }
+
+        .search-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .filter-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 0.5rem 1rem;
+            background: #f0f0f0;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .tag:hover,
+        .tag.active {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="3" fill="white" opacity="0.1"/><circle cx="40" cy="80" r="1" fill="white" opacity="0.1"/></svg>');
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .blog-date::before {
+            content: "📅 ";
+        }
+
+        .blog-category {
+            background: #667eea;
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .blog-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        .blog-excerpt {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s;
+        }
+
+        .read-more:hover {
+            gap: 1rem;
+        }
+
+        .read-more::after {
+            content: "→";
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 3rem 0;
+        }
+
+        .page-btn {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .page-btn:hover,
+        .page-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem 0;
+            text-align: center;
+            color: #666;
+            margin-top: 3rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .blog-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                min-width: auto;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="/" class="logo">Donkey Kong Bananza</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <!-- <li><a href="#games">Games</a></li> -->
+                <li><a href="#blogs" class="active">Blog</a></li>
+                <!-- <li><a href="#guides">Guides</a></li> -->
+                <!-- <li><a href="#contact">Contact</a></li> -->
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Donkey Kong Bananza Blog</h1>
+            <p>Discover the latest gaming tips, strategies, reviews, and news from the world of Donkey Kong and beyond</p>
+        </section>
+
+        <!-- <section class="blog-controls">
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Search articles..." id="searchInput">
+                <button class="search-btn" onclick="searchArticles()">Search</button>
+            </div>
+            <div class="filter-tags">
+                <span class="tag active" data-category="all">All</span>
+                <span class="tag" data-category="tips">Tips & Tricks</span>
+                <span class="tag" data-category="reviews">Reviews</span>
+                <span class="tag" data-category="news">News</span>
+                <span class="tag" data-category="guides">Guides</span>
+                <span class="tag" data-category="strategies">Strategies</span>
+            </div>
+        </section> -->
+
+        <section class="blog-grid" id="blogGrid">
+            <!-- Blog articles will be loaded here -->
+        </section>
+
+        <!-- <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Loading more articles...</p>
+        </div> -->
+
+        <section class="pagination" id="pagination">
+            <a href="#" class="page-btn active">1</a>
+            <a href="#" class="page-btn">2</a>
+            <a href="#" class="page-btn">3</a>
+            <a href="#" class="page-btn">Next</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Donkey Kong Bananza. All rights reserved. | Made with 🍌 for gamers</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sample blog data
+        const blogArticles = [
+            {
+                id: 1,
+                url: "donkey-kong-bananza-pauline",
+                title: "Donkey Kong Bananza Pauline",
+                excerpt: "Discover everything about Donkey Kong Bananza Pauline, the 13-year-old singing companion in Nintendo's upcoming 3D adventure game launching July 2025.",
+                category: "News",
+                date: "2025-06-20",
+                image: "../images/blogs/donkey-kong-bananza-pauline.png"
+            }
+        ];
+
+        let currentArticles = [...blogArticles];
+        let currentPage = 1;
+        const articlesPerPage = 6;
+
+        // Load initial articles
+        function loadArticles() {
+            const startIndex = (currentPage - 1) * articlesPerPage;
+            const endIndex = startIndex + articlesPerPage;
+            const articlesToShow = currentArticles.slice(startIndex, endIndex);
+
+            const blogGrid = document.getElementById('blogGrid');
+            blogGrid.innerHTML = '';
+
+            articlesToShow.forEach((article, index) => {
+                const card = createBlogCard(article);
+                card.style.animationDelay = `${index * 0.1}s`;
+                blogGrid.appendChild(card);
+            });
+
+            updatePagination();
+        }
+
+        // Create blog card element
+        function createBlogCard(article) {
+            const card = document.createElement('div');
+            card.className = 'blog-card';
+            card.onclick = () => openArticle(article.url);
+
+            const categoryColors = {
+                tips: '#FF6B6B',
+                guides: '#4ECDC4',
+                news: '#45B7D1',
+                reviews: '#96CEB4',
+                strategies: '#FECA57'
+            };
+
+            card.innerHTML = `
+                <div class="blog-image"><img src="${article.image}" alt="${article.title}" width="auto" height="100%"></div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">${formatDate(article.date)}</span>
+                        <span class="blog-category" style="background: ${categoryColors[article.category]}">${capitalizeFirst(article.category)}</span>
+                    </div>
+                    <h3 class="blog-title">${article.title}</h3>
+                    <p class="blog-excerpt">${article.excerpt}</p>
+                    <a href="#" class="read-more">Read more</a>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // Filter articles by category
+        function filterArticles(category) {
+            if (category === 'all') {
+                currentArticles = [...blogArticles];
+            } else {
+                currentArticles = blogArticles.filter(article => article.category === category);
+            }
+            currentPage = 1;
+            loadArticles();
+
+            // Update active tag
+            document.querySelectorAll('.tag').forEach(tag => {
+                tag.classList.remove('active');
+            });
+            document.querySelector(`[data-category="${category}"]`).classList.add('active');
+        }
+
+        // Search articles
+        function searchArticles() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            if (searchTerm === '') {
+                currentArticles = [...blogArticles];
+            } else {
+                currentArticles = blogArticles.filter(article => 
+                    article.title.toLowerCase().includes(searchTerm) ||
+                    article.excerpt.toLowerCase().includes(searchTerm)
+                );
+            }
+            currentPage = 1;
+            loadArticles();
+        }
+
+        // Format date
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        }
+
+        // Capitalize first letter
+        function capitalizeFirst(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
+        // Update pagination
+        function updatePagination() {
+            const totalPages = Math.ceil(currentArticles.length / articlesPerPage);
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+
+            if (totalPages <= 1) return;
+
+            // Previous button
+            if (currentPage > 1) {
+                const prevBtn = document.createElement('a');
+                prevBtn.className = 'page-btn';
+                prevBtn.textContent = 'Previous';
+                prevBtn.onclick = (e) => {
+                    e.preventDefault();
+                    currentPage--;
+                    loadArticles();
+                };
+                pagination.appendChild(prevBtn);
+            }
+
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                const pageBtn = document.createElement('a');
+                pageBtn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
+                pageBtn.textContent = i;
+                pageBtn.onclick = (e) => {
+                    e.preventDefault();
+                    currentPage = i;
+                    loadArticles();
+                };
+                pagination.appendChild(pageBtn);
+            }
+
+            // Next button
+            if (currentPage < totalPages) {
+                const nextBtn = document.createElement('a');
+                nextBtn.className = 'page-btn';
+                nextBtn.textContent = 'Next';
+                nextBtn.onclick = (e) => {
+                    e.preventDefault();
+                    currentPage++;
+                    loadArticles();
+                };
+                pagination.appendChild(nextBtn);
+            }
+        }
+
+        // Open article (placeholder function)
+        function openArticle(articleUrl) {
+            // In a real implementation, this would navigate to the full article
+            console.log(`Opening article ${articleUrl}`);
+            window.location.href = articleUrl;
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            loadArticles();
+
+            // Tag click handlers
+            document.querySelectorAll('.tag').forEach(tag => {
+                tag.addEventListener('click', function() {
+                    filterArticles(this.dataset.category);
+                });
+            });
+
+            // Search input enter key
+            document.getElementById('searchInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchArticles();
+                }
+            });
+
+            // Smooth scroll for better UX
+            document.addEventListener('click', function(e) {
+                if (e.target.matches('.page-btn')) {
+                    setTimeout(() => {
+                        document.querySelector('.blog-grid').scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }, 100);
+                }
+            });
+        });
+
+        // Infinite scroll (optional feature)
+        let isLoading = false;
+        window.addEventListener('scroll', function() {
+            if (isLoading) return;
+            
+            const scrollPosition = window.innerHeight + window.scrollY;
+            const pageHeight = document.body.offsetHeight;
+            
+            if (scrollPosition >= pageHeight - 1000) {
+                // Load more articles (simulate)
+                isLoading = true;
+                document.getElementById('loading').style.display = 'block';
+                
+                setTimeout(() => {
+                    isLoading = false;
+                    document.getElementById('loading').style.display = 'none';
+                }, 1500);
+            }
+        });
+    </script>
+</body>
+</html>
